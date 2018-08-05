@@ -1,0 +1,31 @@
+﻿@model MVC_Demo.Models.Employee
+
+@{
+    ViewData["Title"] = "EmployeeDetails";
+}
+
+<h2>Employee Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <table>
+        <tr>
+            <td>Employee ID:</td>
+            <td>@Model.ID</td>
+        </tr>
+        <tr>
+            <td>Employee Name:</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Employee Country:</td>
+            <td>@Model.Country</td>
+        </tr>
+        <tr>
+            <td>Employee City:</td>
+            <td>@Model.City</td>
+        </tr>
+    </table>
+</div>
+

@@ -15,6 +15,19 @@ namespace MVC_Demo.Controllers
             return View();
         }
 
+        public ActionResult Country()
+        {
+            ViewBag.Countries = new List<string>()
+            {
+                "United States",
+                "United Kingdom",
+                "Canada",
+                "India"
+            };
+
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

@@ -1,0 +1,15 @@
+﻿@using System.Collections.Generic;
+@model IEnumerable<MVC_Demo.Models.Department>
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<div>
+    <ul>
+        @foreach (var item in @Model)
+        {
+            <li>@Html.ActionLink(item.Name, "Index", "Employee", new { departmentid = item.ID },null)</li>
+        }
+    </ul>
+</div>

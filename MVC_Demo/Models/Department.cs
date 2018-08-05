@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVC_Demo.Models
 {
-    [Table("tblEmployee")]
-    public class Employee
+    [Table("tblDepartment")]
+    public class Department
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public int DepartmentID { get; set; }
+        public List<Employee> employess { get; set; }
     }
 }

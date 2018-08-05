@@ -7,6 +7,7 @@ namespace MVC_Demo.Models
     public class EmployeeContext : DbContext
     {
         public DbSet<Employee> employees { get; set; }
+        public DbSet<Department> departments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

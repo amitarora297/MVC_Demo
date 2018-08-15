@@ -28,10 +28,7 @@
             <tr>
                 <td>Department:</td>
                 <td>
-                    @Html.DropDownList("DepartmentID", new List<SelectListItem>{
-               new SelectListItem {Text = "IT" ,Value ="1" },
-                new SelectListItem {Text = "HR" ,Value ="2" } }
-        , "Select Department")
+                    @Html.DropDownList("DepartmentID", "Select Department")
                 </td>
             </tr>
         </table>

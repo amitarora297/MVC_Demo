@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -20,5 +21,6 @@ namespace MVC_Demo.Models
         public string City { get; set; }
         [Required]
         public int DepartmentID { get; set; }
+        public Department department { get; set; }
     }
 }

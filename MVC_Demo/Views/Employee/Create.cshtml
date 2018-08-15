@@ -28,11 +28,8 @@
         </tr>
         <tr>
             <td>Department:</td>
-            <td>@Html.DropDownList("DepartmentID", new List<SelectListItem>{
-               new SelectListItem {Text = "IT" ,Value ="1" },
-                new SelectListItem {Text = "HR" ,Value ="2" } }
-               , "Select Department")</td>
-            <td>@Html.ValidationMessageFor(model => model.DepartmentID)</td>
+            <td> @Html.DropDownList("DepartmentID", "Select Department")</td>
+            <td>@Html.ValidationMessageFor(model => model.department)</td>
         </tr>
     </table>
     <input type="submit" value="Create" />

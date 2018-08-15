@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using MVC_Demo.Models;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 
@@ -15,7 +17,7 @@ namespace MVC_Demo.Controllers
         public IActionResult LoadAllEmployee()
         {
             EmployeeContext employeeContext = new EmployeeContext();
-            List<Employee> employees = employeeContext.employees.ToList();
+            List<Employee> employees = employeeContext.employees.Include("department").ToList();
             return View(employees);
         }
         [HttpGet]
@@ -23,6 +25,7 @@ namespace MVC_Demo.Controllers
         {
             EmployeeContext employeeContext = new EmployeeContext();
             Employee emp = employeeContext.employees.Single(e => e.ID == id);
+            ViewBag.DepartmentID = new SelectList(employeeContext.departments, "ID", "Name",emp.DepartmentID);
             return View(emp);
         }
         [HttpPost]
@@ -56,6 +59,8 @@ namespace MVC_Demo.Controllers
         [ActionName("Create")]
         public IActionResult Create()
         {
+            EmployeeContext employeeContext = new EmployeeContext();
+            ViewBag.DepartmentID = new SelectList(employeeContext.departments, "ID", "Name");
             return View();
         }
         [HttpGet]
@@ -64,6 +69,7 @@ namespace MVC_Demo.Controllers
         {
             EmployeeContext employeeContext = new EmployeeContext();
             Employee employee = employeeContext.employees.Single(e => e.ID == id);
+            ViewBag.DepartmentID = new SelectList(employeeContext.departments, "ID", "Name", employee.DepartmentID);
             return View(employee);
         }
         [HttpPost]

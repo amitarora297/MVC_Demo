@@ -9,7 +9,7 @@
 
 <div>
 
-    <td>@Html.ActionLink("Create", "Create")</td>
+    @Html.ActionLink("Create", "Create")
     <br />
     <br />
     <br />
@@ -23,14 +23,15 @@
         </tr>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(mi => item.ID)</td>
-                <td>@Html.DisplayFor(mi => item.Name)</td>
-                <td>@Html.DisplayFor(mi => item.City)</td>
-                <td>@Html.DisplayFor(mi => item.Country)</td>
-                <td>@Html.ActionLink("Edit", "Edit", new { Id = item.ID }, null)</td>
-                <td>@Html.ActionLink("Delete", "Delete", new { Id = item.ID }, null)</td>
-            </tr>
+        <tr>
+            <td>@Html.DisplayFor(mi => item.ID)</td>
+            <td>@Html.DisplayFor(mi => item.Name)</td>
+            <td>@Html.DisplayFor(mi => item.City)</td>
+            <td>@Html.DisplayFor(mi => item.Country)</td>
+            <td>@Html.DisplayFor(mi => item.department.Name)</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { Id = item.ID }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { Id = item.ID }, null)</td>
+        </tr>
         }
         <tr></tr>
     </table>

@@ -1,0 +1,44 @@
+﻿@model MVC_Demo.Models.Employee
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Employee</h4>
+<hr />
+@using (Html.BeginForm("Create", "Employee", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.DisplayNameFor(m => m.Name)</td>
+            <td>@Html.EditorFor(model => model.Name)</td>
+            <td>@Html.ValidationMessageFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Country)</td>
+            <td>@Html.EditorFor(model => model.Country)</td>
+            <td>@Html.ValidationMessageFor(model => model.Country)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.City)</td>
+            <td>@Html.EditorFor(model => model.City)</td>
+            <td>@Html.ValidationMessageFor(model => model.City)</td>
+        </tr>
+        <tr>
+            <td>Department:</td>
+            <td>@Html.DropDownList("DepartmentID", new List<SelectListItem>{
+               new SelectListItem {Text = "IT" ,Value ="1" },
+                new SelectListItem {Text = "HR" ,Value ="2" } }
+               , "Select Department")</td>
+            <td>@Html.ValidationMessageFor(model => model.DepartmentID)</td>
+        </tr>
+    </table>
+    <input type="submit" value="Create" />
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+}
+

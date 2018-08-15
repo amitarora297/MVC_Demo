@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<MVC_Demo.Models.Employee>
+
+@{
+    ViewData["Title"] = "All Employees";
+}
+
+<h2>All Employees</h2>
+
+<div>
+
+    <td>@Html.ActionLink("Create", "Create")</td>
+    <br />
+    <br />
+    <br />
+    <table border="1" style="font-family:Calibri;">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.ID)</th>
+            <th>@Html.DisplayNameFor(m => m.Name) </th>
+            <th>@Html.DisplayNameFor(m => m.City)</th>
+            <th>@Html.DisplayNameFor(m => m.Country)</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(mi => item.ID)</td>
+                <td>@Html.DisplayFor(mi => item.Name)</td>
+                <td>@Html.DisplayFor(mi => item.City)</td>
+                <td>@Html.DisplayFor(mi => item.Country)</td>
+                <td>@Html.ActionLink("Edit", "Edit", new { Id = item.ID }, null)</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { Id = item.ID }, null)</td>
+            </tr>
+        }
+        <tr></tr>
+    </table>
+</div>
